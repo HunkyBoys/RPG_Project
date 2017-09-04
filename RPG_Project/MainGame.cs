@@ -10,10 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-/// <summary>
-/// HI JASON THIS IS A TEST!
-/// </summary>
-//hi alex
+
 namespace RPG_Project
 {
     class MainGame : Game

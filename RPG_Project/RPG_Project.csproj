@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animations.cs" />
     <Compile Include="Calculations.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="GamePlaying.cs" />
