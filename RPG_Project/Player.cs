@@ -11,6 +11,7 @@ namespace RPG_Project
 {
     class Player
     {
+        //hi
         private Vector2 position;
         private int speed;
         private Color color;
