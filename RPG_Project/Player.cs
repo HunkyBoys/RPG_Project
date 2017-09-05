@@ -12,9 +12,13 @@ namespace RPG_Project
     class Player
     {
         private Vector2 position;
+
+
         private int speed;
         private Color color;
-        private KeyboardState state = Keyboard.GetState();
+        private KeyboardState state;
+
+        public Animations playerAnimation = new Animations();
 
         public Player(Vector2 pPosition, int pSpeed, Color pColor)
         {
@@ -27,35 +31,39 @@ namespace RPG_Project
         {
             return (position);
         }
+        public void SetPosition(Vector2 myPosition)
+        {
+            position = myPosition;
+        }
 
         public void Update(GameTime gameTime)
         {
-         
+         state = Keyboard.GetState();
             //movement
             if(state.IsKeyDown(Keys.A))
             {
-                position.X--;
+                position.X-= speed;
             }
-            else if (state.IsKeyDown(Keys.D))
+            if (state.IsKeyDown(Keys.D))
             {
-                position.X++;
+                position.X+= speed;
             }
-            else if (state.IsKeyDown(Keys.W))
+            if (state.IsKeyDown(Keys.W))
             {
-                position.Y--;
+                position.Y-= speed;
 
             }
-            else if (state.IsKeyDown(Keys.S))
+            if (state.IsKeyDown(Keys.S))
             {
-                position.Y++;
+                position.Y+= speed;
             }
 
-            Animations.Update(gameTime);
+            playerAnimation.Update(gameTime);
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            Animations.Draw(spriteBatch, spriteSheet, position, new Vector2(50, 50));
+            playerAnimation.Draw(spriteBatch, MainGame.spriteSheet, position, new Vector2(50, 50));
         }
 
     }

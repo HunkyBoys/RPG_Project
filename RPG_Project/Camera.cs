@@ -11,7 +11,7 @@ namespace RPG_Project
     {
         public static void Update(Player myPlayer, Camera2D myCam)
         {
-            MainGame.setCameraPosition = myPlayer.GetPosition();
+            MainGame.CamLookAt(myPlayer.GetPosition());
         }
     }
 }

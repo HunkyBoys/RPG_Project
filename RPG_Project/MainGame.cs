@@ -39,6 +39,10 @@ namespace RPG_Project
         {
             set { camera.Position = value; }
         }
+        public static void CamLookAt(Vector2 myVector2)
+        {
+            camera.LookAt(myVector2);
+        }
 
 
         public static Texture2D floorTexture;

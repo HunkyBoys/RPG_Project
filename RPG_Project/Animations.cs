@@ -15,7 +15,7 @@ namespace RPG_Project
     {
         static double step = 0;
         static int framesX = 0;
-        public static void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
             step +=gameTime.ElapsedGameTime.TotalSeconds;
             if (step >2.5) {
@@ -28,7 +28,7 @@ namespace RPG_Project
             if (step > 2) { framesX = 200; }
         }
 
-        public static void Draw(SpriteBatch spriteBatch, Texture2D spriteSheet, Vector2 position, Vector2 size)
+        public void Draw(SpriteBatch spriteBatch, Texture2D spriteSheet, Vector2 position, Vector2 size)
         {
             
             spriteBatch.Draw(spriteSheet, position, sourceRectangle: new Rectangle(framesX, 0,  (int)size.X, (int)size.Y));

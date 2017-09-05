@@ -12,7 +12,7 @@ namespace RPG_Project
     class GamePlaying
     {
         private static Map theMap;
-        private static Player myPlayer;
+        public static Player myPlayer;
         private static Camera2D myCamera;
 
         public static void StartSession(Map pTheMap, Camera2D pTheCamera)
