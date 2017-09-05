@@ -12,9 +12,10 @@ namespace RPG_Project
         //storage of tiles / 2d array
         private Tile[,] myTiles;
         private Color[,] theMap;
-        private Texture2D texSetter;
+        private Tile.TileType tileSetter;
 
         private Vector2 spawnPos;
+
         public Vector2 getSpawnPos
         {
             get { return spawnPos; }
@@ -51,44 +52,40 @@ namespace RPG_Project
             {
                 for (int x = 0; x < inMap.GetLength(0); x++)
                 {
-                    texSetter = MainGame.floorTexture;
 
-                    if (inMap[x, y] == Color.White)
+                    switch (inMap[x, y].R)
                     {
-                        texSetter = MainGame.floorTexture;
+                        case 0:
+                            tileSetter = Tile.TileType.wall;
+                            break;
+                        case 1:
+                            tileSetter = Tile.TileType.floor;
+                            break;
+                        default:
+                            tileSetter = Tile.TileType.floor;
+                            Console.Write("X: {0} y: {1} R: {2} G: {3} B: {4}", x, y, inMap[x, y].R, inMap[x, y].G, inMap[x, y].B);
+                            break;
                     }
-                    else if (inMap[x, y] == Color.Black)
+                    switch (inMap[x, y].B)
                     {
-                        texSetter = MainGame.wallTexture;
+                        case 0:
+                            //nothing
+                            break;
+                        case 1:
+                            spawnPos = new Vector2(x, y);
+                            Console.WriteLine("Spawn Position: " + "x" + " " + "y");
+                            Console.Write("X: {0} y: {1} R: {2} G: {3} B: {4}", x, y, inMap[x, y].R, inMap[x, y].G, inMap[x, y].B);
+                            break;
                     }
-                    else
-                    {
-                        Console.WriteLine("chords: " + x + " " + y + "Color: " + inMap[x, y]);
-                    }
-                    myTiles[x, y] = new Tile(texSetter, new Vector2(x * 16, y * 16), new Size2(tileWidth, tileHeight));
 
-                    
+                    myTiles[x, y] = new Tile(tileSetter, new Vector2(x * 16, y * 16), new Size2(tileWidth, tileHeight));
                 }
-            }
-        }
-        public void PopulateMap(Color[,] inMap)
-        {
-            for (int y = 0; y < inMap.GetLength(1); y++)
-            {
-                for (int x = 0; x < inMap.GetLength(0); x++)
-                { 
 
-                    if (inMap[x, y] == Color.Green)
-                    {
-                        spawnPos = new Vector2(x, y);
-                        Console.WriteLine("Spawn Position: " + "x" + " " + "y");
-                    }
-                    else if (inMap[x, y] == Color.Red)
-                    {
-                        //spawn enemies here
-                    }
-                }
             }
         }
     }
 }
+            
+        
+
+

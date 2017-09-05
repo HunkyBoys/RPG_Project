@@ -8,19 +8,35 @@ using System.Threading.Tasks;
 using MonoGame.Extended;
 namespace RPG_Project
 {
+
+
     class Tile
     {
         private Vector2 position;
         private Texture2D texture;
         private Size2 size;
+        public enum TileType
+        {
+            wall,
+            floor
+        }
+        public TileType myType;
 
 
 
-
-        public Tile(Texture2D pTexture, Vector2 pPosition, Size2 pSize)
+        public Tile(TileType type, Vector2 pPosition, Size2 pSize)
         {
             position = pPosition;
-            texture = pTexture;
+            myType = type;
+            switch (myType)
+            {
+                case TileType.wall:
+                    texture = MainGame.wallTexture;
+                    break;
+                case TileType.floor:
+                    texture = MainGame.floorTexture;
+                    break;
+            }
             size = pSize;
         }
 

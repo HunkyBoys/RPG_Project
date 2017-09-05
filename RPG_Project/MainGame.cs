@@ -87,7 +87,7 @@ namespace RPG_Project
             floorTexture = Content.Load<Texture2D>(@"Content\textures\texturefloor");
             wallTexture = Content.Load<Texture2D>(@"Content\textures\texturewall");
 
-            Maps.Add(Content.Load<Texture2D>(@"Content\maps\1"));
+            Maps.Add(Content.Load<Texture2D>(@"Content\maps\4"));
             Spawns.Add(Content.Load<Texture2D>(@"Content\maps\2"));
 
             myMap = new Map(16, 16,Maps[0]);
