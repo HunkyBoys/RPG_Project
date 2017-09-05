@@ -13,25 +13,25 @@ namespace RPG_Project
 {
     class Animations
     {
-        int step = 0;
-        int framesX = 0;
-        public void Update(GameTime gameTime)
+        static double step = 0;
+        static int framesX = 0;
+        public static void Update(GameTime gameTime)
         {
-            step = gameTime.ElapsedGameTime.Seconds;
-            if (step > 4) {
+            step +=gameTime.ElapsedGameTime.TotalSeconds;
+            if (step >2.5) {
                 step = 0;
             }
-            if(step == 0) { framesX = 0; }
-            if (step == 1) { framesX = 50; }
-            if (step == 2) { framesX = 100; }
-            if (step == 3) { framesX = 150; }
-            if (step == 4) { framesX = 200; }
+            if (step > 0) { framesX = 0; }
+            if (step > 0.5) { framesX = 50; }
+            if (step > 1) { framesX = 100; }
+            if (step > 1.5) { framesX = 150; }
+            if (step > 2) { framesX = 200; }
         }
 
-        public void Draw(SpriteBatch spriteBatch, Texture2D SpriteSheet, Vector2 position, Vector2 size)
+        public static void Draw(SpriteBatch spriteBatch, Texture2D spriteSheet, Vector2 position, Vector2 size)
         {
             
-            spriteBatch.Draw(SpriteSheet, position, sourceRectangle: new Rectangle(framesX, 0,  50, 50));
+            spriteBatch.Draw(spriteSheet, position, sourceRectangle: new Rectangle(framesX, 0,  (int)size.X, (int)size.Y));
         }
     }
 }

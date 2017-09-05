@@ -50,11 +50,12 @@ namespace RPG_Project
                 position.Y++;
             }
 
-            
+            Animations.Update(gameTime);
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
+            Animations.Draw(spriteBatch, spriteSheet, position, new Vector2(50, 50));
         }
 
     }

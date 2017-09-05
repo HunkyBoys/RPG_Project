@@ -25,7 +25,7 @@ namespace RPG_Project
         private Map myMap;
         private SpriteBatch spriteBatch;
         public static Camera2D camera;
-
+        
         private List<Texture2D> Maps = new List<Texture2D>();
         private List<Texture2D> Spawns = new List<Texture2D>();
 
@@ -43,7 +43,7 @@ namespace RPG_Project
 
         public static Texture2D floorTexture;
         public static Texture2D wallTexture;
-
+        public static Texture2D spriteSheet;
 
 
         /// <summary>
@@ -84,6 +84,7 @@ namespace RPG_Project
             
             floorTexture = Content.Load<Texture2D>(@"Content\textures\texturefloor");
             wallTexture = Content.Load<Texture2D>(@"Content\textures\texturewall");
+            spriteSheet = Content.Load<Texture2D>(@"Content\textures\spritesheet");
 
             Maps.Add(Content.Load<Texture2D>(@"Content\maps\4"));
             Spawns.Add(Content.Load<Texture2D>(@"Content\maps\2"));
@@ -107,7 +108,7 @@ namespace RPG_Project
                     break;
                 case GameState.gamePlaying:
                     GamePlaying.Update(gameTime);
-
+                    
                     break;
                 default:
                     break;
@@ -130,7 +131,7 @@ namespace RPG_Project
                     break;
                 case GameState.gamePlaying:
                     GamePlaying.Draw(gameTime, spriteBatch);
-
+                    
                     break;
                 default:
                     break;

@@ -31,7 +31,7 @@ namespace RPG_Project
         public static void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             theMap.Draw(spriteBatch);
-            myPlayer.Draw(gameTime, spriteBatch);
+            myPlayer.Draw(gameTime, spriteBatch);     
         }
     }
 }
