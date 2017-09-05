@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MonoGame.Extended;
 
 namespace RPG_Project
 {
@@ -21,6 +22,7 @@ namespace RPG_Project
             position = pPosition;
             speed = pSpeed;
             color = pColor;
+            
         }
 
         public Vector2 GetPosition()
@@ -55,6 +57,7 @@ namespace RPG_Project
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
+
         }
 
     }

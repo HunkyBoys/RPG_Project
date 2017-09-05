@@ -52,7 +52,6 @@ namespace RPG_Project
             {
                 for (int x = 0; x < inMap.GetLength(0); x++)
                 {
-
                     switch (inMap[x, y].R)
                     {
                         case 0:
@@ -63,7 +62,7 @@ namespace RPG_Project
                             break;
                         default:
                             tileSetter = Tile.TileType.floor;
-                            Console.Write("X: {0} y: {1} R: {2} G: {3} B: {4}", x, y, inMap[x, y].R, inMap[x, y].G, inMap[x, y].B);
+                            Console.Write(" \n ERROR: X: {0} y: {1} R: {2} G: {3} B: {4}", x, y, inMap[x, y].R, inMap[x, y].G, inMap[x, y].B);
                             break;
                     }
                     switch (inMap[x, y].B)
@@ -73,8 +72,7 @@ namespace RPG_Project
                             break;
                         case 1:
                             spawnPos = new Vector2(x, y);
-                            Console.WriteLine("Spawn Position: " + "x" + " " + "y");
-                            Console.Write("X: {0} y: {1} R: {2} G: {3} B: {4}", x, y, inMap[x, y].R, inMap[x, y].G, inMap[x, y].B);
+                            Console.Write(" \n SPAWN: X: {0} y: {1} R: {2} G: {3} B: {4}", x, y, inMap[x, y].R, inMap[x, y].G, inMap[x, y].B);
                             break;
                     }
 
